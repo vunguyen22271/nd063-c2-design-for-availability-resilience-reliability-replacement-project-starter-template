@@ -1,0 +1,15 @@
+1. Minimum RTO for a single AZ outage
+
+Failover times usually range from 60 to 150 seconds. Longer transactions or recovery processes may extend this time. After completion, the RDS console may take extra time to update with the new Availability Zone.
+
+2. Minimum RTO for a single region outage
+
+In case of a single region outage, the secondary region's read replica must be manually promoted in the AWS console. Replication between master and read replica is asynchronous. Promotion takes a few minutes and requires updating application endpoints. Estimated recovery time objective (RTO) is around 10 minutes.
+
+3. Minimum RPO for a single AZ outage
+
+Replication is synchronous during the outage, ensuring a zero Recovery Point Objective (RPO). However, due to failover times of 60 to 150 seconds, data loss is possible during the switch.
+
+4. Minimum RPO for a single region outage
+
+Assuming synchronous replication at the outage, the RPO is zero. Yet, manual promotion of the replica and updating database endpoints in applications can lead to potential data loss during the switch (around 15 minutes).

@@ -1,0 +1,31 @@
+$ mysql -h udacity-1.cs7hythzodad.us-west-2.rds.amazonaws.com -u udacity -p udacity
+Enter password:
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 38
+Server version: 8.0.35 Source distribution
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SELECT * FROM customers;
++----+------------+------------------+
+| id | name       | email            |
++----+------------+------------------+
+|  1 | John Doe   | john@example.com |
+|  2 | Jane Smith | jane@example.com |
++----+------------+------------------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO customers (id, name, email)
+    -> VALUES (1, 'John Doe', 'john@example.com'),
+    ->        (2, 'Jane Smith', 'jane@example.com');
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+mysql>
